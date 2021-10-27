@@ -22,4 +22,4 @@ Configure your own K8S with JuJu on openstack
   <img src="https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,w_100,h_100/https://assets.ubuntu.com/v1/60bd6cf1-picto-juju.svg" title="Juju">
 </p>
 
-<b>Base</b> : we use the charm bundle <a href="https://jaas.ai/kubernetes-core/bundle" target="_blank" title="kubernetes-core">Kubernetes core</a></br>
+<b>Base</b> : we use the charm bundle <a href="https://jaas.ai/charmed-kubernetes/bundle" target="_blank" title="charmed kubernetes">Charmed kubernetes</a></br>
