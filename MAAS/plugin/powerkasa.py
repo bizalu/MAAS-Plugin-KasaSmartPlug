@@ -4,8 +4,6 @@ Support for managing Kasa SmartPlug via python-kasa.
 https://python-kasa.readthedocs.io/en/latest/
 """
 
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
 import asyncio
 from kasa import SmartPlug
 from provisioningserver.drivers import make_ip_extractor, make_setting_field
@@ -37,7 +35,7 @@ class KasaPowerDriver(PowerDriver):
             if self.power_query(system_id, context) == "off":
                 asyncio.run(smartPlug.turn_on())
         except:
-            raise PowerActionError("Kasa Power Driver unable to power off SmartPlug")
+            raise PowerActionError("Kasa Power Driver unable to power on SmartPlug")
         
     def power_off(self, system_id, context):
         try:
