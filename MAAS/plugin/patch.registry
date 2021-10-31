@@ -1,0 +1,18 @@
+--- registry.py	2021-10-31 14:48:11.329047027 +0000
++++ registry-patch.py	2021-10-31 14:47:45.744593707 +0000
+@@ -29,6 +29,7 @@
+ from provisioningserver.drivers.power.vmware import VMwarePowerDriver
+ from provisioningserver.drivers.power.webhook import WebhookPowerDriver
+ from provisioningserver.drivers.power.wedge import WedgePowerDriver
++from provisioningserver.drivers.power.powerkasa import KasaPowerDriver
+ from provisioningserver.utils.registry import Registry
+ 
+ 
+@@ -72,6 +73,7 @@
+     VMwarePowerDriver(),
+     WebhookPowerDriver(),
+     WedgePowerDriver(),
++    KasaPowerDriver(),
+ ]
+ for driver in power_drivers:
+     PowerDriverRegistry.register_item(driver.name, driver)
