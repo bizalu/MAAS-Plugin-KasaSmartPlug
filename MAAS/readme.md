@@ -66,7 +66,7 @@ Install the custom power plugin
 sudo apt install -y python3-pip
 ```
 ```bash
-pip3 install python-kasa
+sudo pip3 install --system  python-kasa
 ```
 ```bash
 sudo cp ./powerkasa.py /usr/lib/python3/dist-packages/provisioningserver/drivers/power/
