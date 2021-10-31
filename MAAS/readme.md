@@ -35,6 +35,7 @@ Apply the configuration
 ```bash
 sudo netplan apply
 ```
+
 **Install the prerequis :**
 ```bash
 sudo apt-add-repository -yu ppa:maas/3.0
@@ -44,15 +45,17 @@ sudo apt upgrade -y
 
 Install MAAS (rack+controler)
 ---------------------
-**Install postgresql server**
+**Install postgresql server :**
 ```bash
 sudo apt install -y postgresql
 ```
-**Install MAAS server**
+
+**Install MAAS server :**
 ```bash
 sudo apt install -y maas
 ```
-**Configure the admin account for MAAS server**
+
+**Configure the admin account for MAAS server :**
 ```bash
 export MAAS_ADMUSER="admin"
 export MAAS_ADMPASS=`openssl rand -base64 32`
@@ -62,15 +65,27 @@ echo "Your admin account is $MAAS_ADMUSER with the password $MAAS_ADMPASS, don't
 
 Install the custom power plugin
 ---------------------
+**Install the prerequis :**
 ```bash
 sudo apt install -y python3-pip
 ```
 ```bash
 sudo pip3 install --system  python-kasa
 ```
+
+**Install the custom driver and patch MAAS :**
+
+The file "powerKasa.py" and "patch.registry" must be present in the current directory before begin.
 ```bash
 sudo cp ./powerkasa.py /usr/lib/python3/dist-packages/provisioningserver/drivers/power/
 sudo chown root:root /usr/lib/python3/dist-packages/provisioningserver/drivers/power/powerkasa.py
 sudo chmod 644 /usr/lib/python3/dist-packages/provisioningserver/drivers/power/powerkasa.py
 ```
+```bash
+sudo patch /usr/lib/python3/dist-packages/provisioningserver/drivers/power/registry.py < patch.registry
+```
+
+**Reboot the MAAS server to apply :**
+```bash
+sudo shutdown -r now
 ```
