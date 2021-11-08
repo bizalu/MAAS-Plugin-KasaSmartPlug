@@ -185,6 +185,9 @@ applications:
     charm: cs:ceph-radosgw-300
     num_units: 1
     options:
+      os-admin-hostname: storage.elserverido.com
+      os-internal-hostname: storage.elserverido.com
+      os-public-hostname: storage.elserverido.com
       source: *openstack-origin
     bindings:
       "": admin-space
@@ -206,6 +209,9 @@ applications:
     charm: cs:cinder-317
     num_units: 1
     options:
+      os-admin-hostname: cinder.elserverido.com
+      os-internal-hostname: cinder.elserverido.com
+      os-public-hostname: cinder.elserverido.com
       block-device: None
       glance-api-version: 2
       worker-multiplier: *worker-multiplier
@@ -239,6 +245,9 @@ applications:
     charm: cs:glance-312
     num_units: 1
     options:
+      os-admin-hostname: glance.elserverido.com
+      os-internal-hostname: glance.elserverido.com
+      os-public-hostname: glance.elserverido.com
       worker-multiplier: *worker-multiplier
       openstack-origin: *openstack-origin
     bindings:
@@ -261,6 +270,9 @@ applications:
     charm: cs:keystone-329
     num_units: 1
     options:
+      os-admin-hostname: keystone.elserverido.com
+      os-internal-hostname: keystone.elserverido.com
+      os-public-hostname: keystone.elserverido.com
       worker-multiplier: *worker-multiplier
       openstack-origin: *openstack-origin
     bindings:
@@ -291,6 +303,10 @@ applications:
     charm: cs:neutron-api-302
     num_units: 1
     options:
+      os-admin-hostname: neutron-api.elserverido.com
+      os-internal-hostname: neutron-api.elserverido.com
+      os-public-hostname: neutron-api.elserverido.com
+      dns-domain: elserverido.com
       enable-ml2-port-security: true
       neutron-security-groups: true
       flat-network-providers: physnet1
@@ -316,6 +332,9 @@ applications:
     charm: cs:placement-31
     num_units: 1
     options:
+      os-admin-hostname: placement.elserverido.com
+      os-internal-hostname: placement.elserverido.com
+      os-public-hostname: placement.elserverido.com 
       worker-multiplier: *worker-multiplier
       openstack-origin: *openstack-origin
     bindings:
@@ -338,6 +357,9 @@ applications:
     charm: cs:nova-cloud-controller-361
     num_units: 1
     options:
+      os-admin-hostname: compute.elserverido.com
+      os-internal-hostname: compute.elserverido.com
+      os-public-hostname: compute.elserverido.com
       console-access-protocol: spice
       network-manager: Neutron
       worker-multiplier: *worker-multiplier
