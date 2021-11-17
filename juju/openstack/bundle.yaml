@@ -144,6 +144,24 @@ relations:
   - ceph-radosgw:certificates
 - - vault:certificates
   - mysql-innodb-cluster:certificates
+- - designate-bind:certificates
+  - vault:certificates
+- - designate:certificates
+  - vault:certificates
+- - designate:shared-db
+  - designate-mysql-router:shared-db
+- - designate-mysql-router:db-router
+  - mysql-innodb-cluster:db-router
+- - designate:amqp
+  - rabbitmq-server:amqp
+- - designate:identity-service
+  - keystone:identity-service
+- - designate:dnsaas
+  - neutron-api:external-dns
+- - designate:coordinator-memcached
+  - memcached:cache
+- - designate:dns-backend
+  - designate-bind:dns-backend
 applications:
   ceph-mon:
     annotations:
@@ -306,6 +324,7 @@ applications:
       os-admin-hostname: neutron-api.elserverido.com
       os-internal-hostname: neutron-api.elserverido.com
       os-public-hostname: neutron-api.elserverido.com
+      manage-neutron-plugin-legacy-mode: true
       dns-domain: elserverido.com
       enable-ml2-port-security: true
       neutron-security-groups: true
@@ -417,7 +436,8 @@ applications:
       default-theme: default
       default-create-volume: no
       enforce-ssl: true
-      os-public-hostname: horizon.elserverido.com
+      os-public-hostname: openstack.elserverido.com
+      webroot: '/'
       openstack-origin: *openstack-origin
     bindings:
       "": admin-space
@@ -468,9 +488,6 @@ applications:
       gui-x: '120'
       gui-y: '1030'
     charm: cs:ovn-chassis-21
-    # Please update the `bridge-interface-mappings` to values suitable for the
-    # hardware used in your deployment. See the referenced documentation at the
-    # top of this file.
     options:
       ovn-bridge-mappings: physnet1:br-ex
       bridge-interface-mappings: *data-port
@@ -495,3 +512,31 @@ applications:
       "": admin-space
     to:
     - lxd:0
+
+  designate:
+    charm: cs:designate-59
+    num_units: 1
+    options:
+      nameservers: 'maas.elserverido.com.'
+      dns-slaves: 10.100.125.208
+      openstack-origin: *openstack-origin
+      os-admin-hostname: dns.elserverido.com
+      os-internal-hostname: dns.elserverido.com
+      os-public-hostname: dns.elserverido.com
+    bindings:
+      "": admin-space
+    to:
+    - lxd:2
+
+  designate-mysql-router:
+    charm: cs:mysql-router-15
+    bindings:
+      "": admin-space
+
+  memcached:
+    charm: cs:memcached-34
+    num_units: 1
+    bindings:
+      "": admin-space
+    to:
+    - lxd:2
