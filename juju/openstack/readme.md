@@ -20,12 +20,9 @@ Unsealed Vault:
 ```bash
 sudo snap install vault
 ```
-Get vault url and port:
 ```bash
-juju status vault
-```
-```bash
-export VAULT_ADDR="http://IP:port"
+export VAULT_IP=`juju status | grep vault/ | awk '{ print $5":"$6}' | awk -F"/" '{ print $1}'`
+export VAULT_ADDR="http://$VAULT_IP"
 ```
 ```bash
 vault operator init -key-shares=5 -key-threshold=3
