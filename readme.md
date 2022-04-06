@@ -1,5 +1,5 @@
-How to install MAAS
-====================
+How to install MAAS with Kasa SmartPlug
+=======================================
 
 
 Configure static IP and install prerequis
