@@ -1,5 +1,5 @@
-How to install MAAS with Kasa SmartPlug
-=======================================
+How to install MAAS with Kasa SmartPlug integration
+===================================================
 
 Install MAAS (rack+controler)
 ---------------------
