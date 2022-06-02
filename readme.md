@@ -1,48 +1,6 @@
 How to install MAAS with Kasa SmartPlug
 =======================================
 
-
-Configure static IP and install prerequis
----------------------
-**Disable the network cloud manangement :**
-```bash
-sudo vi /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg
-```
-And add the line 
-```vim
-network: {config: disabled}
-```
-
-**Configure your static network :**
-```bash
-sudo vi /etc/netplan/01-netcfg.yaml
-```
-And add the line 
-```vim
-network:
-  version: 2
-  renderer: networkd
-  ethernets:
-    ens192:
-      dhcp4: no
-      addresses:
-        - <your IP/MASK>
-      gateway4: <your gateway>
-      nameservers:
-        addresses: [<your DNS server>]
-```
-Apply the configuration
-```bash
-sudo netplan apply
-```
-
-**Install the prerequis :**
-```bash
-sudo apt-add-repository -yu ppa:maas/3.0
-sudo apt update
-sudo apt upgrade -y
-```
-
 Install MAAS (rack+controler)
 ---------------------
 **Install postgresql server :**
