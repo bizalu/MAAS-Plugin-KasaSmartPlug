@@ -8,10 +8,10 @@ Install MAAS (rack+controler)
 sudo apt-add-repository -yu ppa:maas/3.2
 ```
 ```bash
-source /etc/os-release
-sudo sed -i 's/$VERSION_CODENAME/focal/g' /etc/apt/sources.list.d/maas-*.list
-sudo apt update
-sudo apt upgrade -y
+source /etc/os-release && sudo sed -i 's/$VERSION_CODENAME/focal/g' /etc/apt/sources.list.d/maas-*.list
+```
+```bash
+sudo apt update && sudo apt upgrade -y
 ```
 
 **Install postgresql server :**
