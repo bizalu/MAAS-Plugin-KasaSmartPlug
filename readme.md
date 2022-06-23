@@ -5,7 +5,7 @@ Install MAAS (rack+controler)
 ---------------------
 **Install the prerequis (only on ubuntu focal 20.04) :**
 ```bash
-sudo apt-add-repository -yu ppa:maas/3.0
+sudo apt-add-repository -yu ppa:maas/3.1
 ```
 
 **Install postgresql and MAAS server :**
