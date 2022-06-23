@@ -47,3 +47,15 @@ sudo patch /usr/lib/python3/dist-packages/provisioningserver/drivers/power/regis
 ```bash
 sudo shutdown -r now
 ```
+
+Configure your server as an hotspot wifi
+---------------------
+```bash
+sudo apt install -y network-manager
+```
+```bash
+export WIFI_SSID="power" && export WIFI_PASS=`openssl rand -base64 16`
+```
+```bash
+sudo nmcli d wifi hotspot ifname wlp3s0 $WIFI_SSID power password $WIFI_PASS && && echo "Your wifi hotspot is $WIFI_SSID with the password $WIFI_PASS, don't lose it"
+```
