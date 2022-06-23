@@ -15,10 +15,10 @@ sudo apt install -y postgresql maas
 
 **Configure the admin account for MAAS server :**
 ```bash
-export MAAS_ADMUSER="admin"
-export MAAS_ADMPASS=`openssl rand -base64 32`
-sudo maas createadmin --username $MAAS_ADMUSER --password $MAAS_ADMPASS --email "admin@exemple.com"
-echo "Your admin account is $MAAS_ADMUSER with the password $MAAS_ADMPASS, don't lose it"
+export MAAS_ADMUSER="admin" && export MAAS_ADMPASS=`openssl rand -base64 32`
+```
+```bash
+sudo maas createadmin --username $MAAS_ADMUSER --password $MAAS_ADMPASS --email "admin@exemple.com" && echo "Your admin account is $MAAS_ADMUSER with the password $MAAS_ADMPASS, don't lose it"
 ```
 
 Install the custom power plugin
