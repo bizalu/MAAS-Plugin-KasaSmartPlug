@@ -5,7 +5,7 @@ Install MAAS (rack+controler)
 ---------------------
 **Install the prerequis :**
 ```bash
-sudo apt-add-repository -yu ppa:maas/3.2
+sudo apt-add-repository -yu ppa:maas/3.1
 sudo apt update
 sudo apt upgrade -y
 ```
