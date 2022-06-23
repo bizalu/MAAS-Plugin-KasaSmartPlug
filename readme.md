@@ -3,14 +3,9 @@ How to install MAAS with Kasa SmartPlug integration
 
 Install MAAS (rack+controler)
 ---------------------
-**Install the prerequis :**
+**Install the prerequis (only on ubuntu focal 20.04) :**
 ```bash
 sudo apt-add-repository -yu ppa:maas/3.2
-```
-```bash
-source /etc/os-release && sudo sed -i "s/$VERSION_CODENAME/focal/g" /etc/apt/sources.list.d/maas-*.list
-```
-```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
