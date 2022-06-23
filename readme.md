@@ -3,6 +3,13 @@ How to install MAAS with Kasa SmartPlug integration
 
 Install MAAS (rack+controler)
 ---------------------
+**Install the prerequis :**
+```bash
+sudo apt-add-repository -yu ppa:maas/3.2
+sudo apt update
+sudo apt upgrade -y
+```
+
 **Install postgresql server :**
 ```bash
 sudo apt install -y postgresql
