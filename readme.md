@@ -57,5 +57,5 @@ sudo apt install -y network-manager
 export WIFI_SSID="power" && export WIFI_PASS=`openssl rand -base64 16`
 ```
 ```bash
-sudo nmcli d wifi hotspot ifname wlp3s0 $WIFI_SSID password $WIFI_PASS && echo "Your wifi hotspot is $WIFI_SSID with the password $WIFI_PASS, don't lose it"
+sudo nmcli d wifi hotspot ifname wlp3s0 ssid $WIFI_SSID password $WIFI_PASS && echo "Your wifi hotspot is $WIFI_SSID with the password $WIFI_PASS, don't lose it"
 ```
