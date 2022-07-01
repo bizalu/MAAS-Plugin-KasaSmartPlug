@@ -54,3 +54,10 @@ sudo apt install -y network-manager
 ```bash
 export WIFI_SSID="power" && export WIFI_PASS=`openssl rand -base64 16` && sudo nmcli d wifi hotspot ifname wlp3s0 ssid $WIFI_SSID password $WIFI_PASS && echo "Your wifi hotspot is $WIFI_SSID with the password $WIFI_PASS, don't lose it"
 ```
+
+To start the wifi hotspot on boot, edit the file :
+```bash
+sudo vi /etc/NetworkManager/system-connections/Hotspot.nmconnection
+```
+
+And change the paramater "autoconnect" to "true".
