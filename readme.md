@@ -18,6 +18,11 @@ sudo apt install -y postgresql maas
 export MAAS_ADMUSER="admin" && export MAAS_ADMPASS=`openssl rand -base64 32` && sudo maas createadmin --username $MAAS_ADMUSER --password $MAAS_ADMPASS --email "admin@exemple.com" && echo "Your admin account is $MAAS_ADMUSER with the password $MAAS_ADMPASS, don't lose it"
 ```
 
+I don't know why, but I need to execute this command to debug bind9 :
+```bash
+sudo chown bind:root /var/cache/bind/
+```
+
 Install the custom power plugin
 ---------------------
 **Install the prerequis :**
